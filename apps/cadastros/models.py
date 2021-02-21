@@ -25,5 +25,6 @@ class Jogador(models.Model):
     lesoes = models.TextField('Lesões', null=True, blank=True)
     foto = models.ImageField(upload_to='static/img', null=True, blank=True)
 
+
     def __str__(self):
         return self.nome

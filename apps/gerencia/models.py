@@ -17,3 +17,4 @@ class Scores(models.Model):
 
     def __str__(self):
         return str(self.jogador)
+
