@@ -46,4 +46,8 @@ class Jogador(models.Model):
     cont = models.IntegerField(default=0)
 
     def __str__(self):
-        return self.nome
+        return '%s - %s' % (self.nome, self.posicao)
+
+    class Meta:
+        verbose_name = 'Jogador'
+        verbose_name_plural = 'Jogadores'
