@@ -41,3 +41,7 @@ class Scores(models.Model):
 
     def __str__(self):
         return str(self.jogador)
+
+    class Meta:
+        verbose_name = 'Score'
+        verbose_name_plural = 'Scores'
