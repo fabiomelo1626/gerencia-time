@@ -28,6 +28,7 @@ INSTALLED_APPS = [
     #apps_creates
     'apps.cadastros',
     'apps.gerencia',
+    'apps.core',
 ]
 
 MIDDLEWARE = [

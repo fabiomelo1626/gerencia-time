@@ -19,7 +19,7 @@ class Jogador(models.Model):
     }
     nome = models.CharField('Nome', max_length=100)
     idade = models.IntegerField('Idade')
-    posicao = models.CharField('Posicao', max_length=17, choices=posicao_choice, default='Goleiro')
+    posicao = models.CharField('Posicao', max_length=17, choices=posicao_choice, default='')
     posicao_opcao = models.CharField('Posicao_opcao', null=True, blank=True, max_length=17, choices=posicao_choice)
     cpf = models.CharField('CPF', max_length=14)
     lesoes = models.TextField('Lesões', null=True, blank=True)
@@ -28,7 +28,7 @@ class Jogador(models.Model):
     acerto_passe_curto = models.IntegerField('Short_pass', default=0)
     media_acert_pass_curt = models.FloatField('média_short_pass', default=0)
     acerto_passe_longo = models.IntegerField('Long_pass', default=0)
-    media_acert_pass.long = models.FloatField('média_long_pass', default=0)
+    media_acert_pass_long = models.FloatField('média_long_pass', default=0)
     gols = models.IntegerField('Gols', default=0)
     media_gols = models.FloatField('média_gols', default=0)
     desarmes = models.IntegerField('Desarmes', default=0)
