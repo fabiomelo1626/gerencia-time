@@ -43,7 +43,7 @@ class Jogador(models.Model):
     media_cart_amar = models.FloatField('média_yellow_card', default=0)
     cartao_vermelho = models.IntegerField('Red_card', default=0)
     media_cart_verm = models.FloatField('média_red_card', default=0)
-    cont = models.IntegerField(default=0)
+    partidas = models.IntegerField(default=0)
 
     def __str__(self):
         return '%s - %s' % (self.nome, self.posicao)
