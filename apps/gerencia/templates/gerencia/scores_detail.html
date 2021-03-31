@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+   <h2> Média de scores do jogador {{object.nome}}</h2>
+</div>
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Número de Partidas</th>
+      <th scope="col">Passes Curtos</th>
+      <th scope="col">Passes Longos</th>
+      <th scope="col">Passes Errados</th>
+      <th scope="col">Gols</th>
+      <th scope="col">Desarmes</th>
+      <th scope="col">Defesas</th>
+      <th scope="col">Passes Para Gol</th>
+      <th scope="col">Faltas</th>
+      <th scope="col">Cartões Amarelos</th>
+      <th scope="col">Cartões Vermelhos</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>{{object.partidas}}</td>
+      <td>{{object.media_acert_pass_curt}}</td>
+      <td>{{object.media_acert_pass_long}}</td>
+      <td>{{object.media_erro_passe}}</td>
+      <td>{{object.media_gols}}</td>
+      <td>{{object.media_desarmes}}</td>
+      <td>{{object.media_defesas}}</td>
+      <td>{{object.media_pass_gol}}</td>
+      <td>{{object.media_faltas}}</td>
+      <td>{{object.media_cart_amar}}</td>
+      <td>{{object.media_cart_verm}}</td>
+    </tr>
+  </tbody>
+</table>
+{% endblock %}

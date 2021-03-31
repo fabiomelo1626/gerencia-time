@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<header class="detail">
+   <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Jogador</th>
+        <th scope="col">Posição</th>
+        <th scope="col">Posição Opcional</th>
+        <th scope="col">Idade</th>
+        <th scope="col">Foto</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{object.nome}}</td>
+        <td>{{object.posicao}}</td>
+        <td>{{object.posicao_opcao}}</td>
+        <td>{{object.idade}}</td>
+        <td><img src="{{object.foto.url}}"  alt="foto jogador" class="img-jogador"></td>
+      </tr>
+    </tbody>
+  </table>
+</header>
+{% endblock %}

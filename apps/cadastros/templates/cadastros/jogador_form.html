@@ -1,11 +1,17 @@
-<html>
-    <head>
-        <title>Jogador</title>
-    </head>
-    <body>
-        <form method="post">{% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" value="Save">
-</form>
-    </body>
-</html>
+{% extends 'base.html' %}
+{% load static %}
+{% load bootstrap %}
+{% block content %}
+
+<header class="cadastro">
+    <div class="container">
+        <form method="post" enctype="multipart/form-data">{% csrf_token %}
+            {{ form|bootstrap }}
+            <div class="cadastro-button">
+                <button type="submit">Confirmar</button>
+                <button type="reset">Cancelar</button>
+            </div>
+        </form>
+    </div>
+</header>
+{% endblock %}
