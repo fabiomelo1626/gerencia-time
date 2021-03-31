@@ -25,3 +25,8 @@ db.sqlite3-journal
 static
 
 migrations
+
+gestao_time.pem
+
+#media
+media

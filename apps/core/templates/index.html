@@ -1,8 +1,35 @@
-<html>
-    <head>
-
-    </head>
-    <body>
-    <h1>hello!</h1>
-    </body>
-</html>
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} home {% endblock %}
+{% block content %}
+<body class="index">
+    <div class="time">
+        <a href="{% url 'cadastros:new_jogador' %}">
+        <img src="{% static 'img/jogador.jpg' %}" class="img-time"></a>
+        <div>
+            JOGADOR
+        </div>
+    </div>
+    <div class="time">
+        <a href="{% url 'cadastros:list_jogador' %}">
+        <img src="{% static 'img/plantel.jpg' %}" class="img-time"></a>
+        <div>
+            PLANTEL
+        </div>
+    </div>
+    <div class="time">
+        <a href="{% url 'gerencia:new_score' %}">
+        <img src="{% static 'img/score.jpg' %}" class="img-time"></a>
+        <div>
+            SCORE
+        </div>
+    </div>
+    <div class="time">
+        <a href="{% url 'gerencia:new_especifico' %}">
+        <img src="{% static 'img/destaque.jpg' %}" class="img-time"></a>
+        <div>
+            DADOS ESPECIFÍCOS
+        </div>
+    </div>
+</body>
+{% endblock %}

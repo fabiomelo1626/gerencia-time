@@ -1,23 +1,27 @@
 from django.db import models
 from apps.cadastros.models import *
+from django.urls import reverse_lazy
 
 
 class Scores(models.Model):
     jogador = models.ForeignKey(Jogador, on_delete=models.PROTECT)
-    acerto_passe_curto = models.IntegerField('Short_pass', default=0)
-    acerto_passe_longo = models.IntegerField('Long_pass', default=0)
+    erro_passe = models.IntegerField('Erros de passes', default=0)
+    acerto_passe_curto = models.IntegerField('Passes curtos', default=0)
+    acerto_passe_longo = models.IntegerField('Passes longos', default=0)
     gols = models.IntegerField('Gols', default=0)
     desarmes = models.IntegerField('Desarmes', default=0)
     defesas = models.IntegerField('Defesas', default=0)
-    passes_gol = models.IntegerField('Pass_gol', default=0)
+    passes_gol = models.IntegerField('Passes pra gol', default=0)
     faltas = models.IntegerField('Faltas', default=0)
-    cartao_amarelo = models.IntegerField('Yellow_card', default=0)
-    cartao_vermelho = models.IntegerField('Red_card', default=0)
+    cartao_amarelo = models.IntegerField('Cartão Amarelo', default=0)
+    cartao_vermelho = models.IntegerField('Cartão vermelho', default=0)
     data = models.DateField('Data')
 
     def save(self, force_insert=False, force_update=False, *args, **kwargs):
         # Salvar os dados
         self.jogador.partidas += 1
+        self.jogador.erro_passe += self.erro_passe
+        self.jogador.media_erro_passe = self.jogador.erro_passe / self.jogador.partidas
         self.jogador.acerto_passe_curto += self.acerto_passe_curto
         self.jogador.media_acert_pass_curt = self.jogador.acerto_passe_curto / self.jogador.partidas
         self.jogador.acerto_passe_longo += self.acerto_passe_longo
@@ -42,6 +46,27 @@ class Scores(models.Model):
     def __str__(self):
         return str(self.jogador)
 
+    def get_absolute_url(self):
+        return reverse_lazy('cadastros:list_jogador')
+
     class Meta:
         verbose_name = 'Score'
         verbose_name_plural = 'Scores'
+
+
+class Especifico(models.Model):
+    jogador = models.ForeignKey(Jogador, on_delete=models.PROTECT)
+    lesoes = models.TextField('Lesões', max_length=400)
+    velocidade = models.FloatField('Velocidade', default=0)
+    dados_psicologicos = models.TextField('Psicológico', max_length=400)
+    dados_nutricionais = models.TextField('Nutricional', max_length=400)
+
+    def __str__(self):
+        return str(self.jogador)
+
+    def get_absolute_url(self):
+        return reverse_lazy('cadastros:list_jogador')
+
+    class Meta:
+        verbose_name = 'Especifico'
+        verbose_name_plural = 'Especificos'

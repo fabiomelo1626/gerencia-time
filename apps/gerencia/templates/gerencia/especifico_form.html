@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load bootstrap %}
+{% block content %}
+<header class="cadastro">
+    <div class="container">
+        <form method="post">{% csrf_token %}
+            {{ form|bootstrap }}
+            <button type="submit">Confirmar</button>
+            <button type="reset">Cancelar</button>
+        </form>
+    </div>
+</header>
+{% endblock %}
