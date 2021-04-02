@@ -22,10 +22,11 @@ db.sqlite3-journal
 .idea/
 
 #Statics
-
+static
 
 migrations
 
 gestao_time.pem
 
 #media
+media
